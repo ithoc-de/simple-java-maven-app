@@ -19,8 +19,8 @@ pipeline {
             steps {
                 sh 'java -version'
                 sh 'mvn --version'
-                echo 'DB_HOST = ${DB_HOST}'
-                echo 'DB_PORT = ${DB_PORT}'
+                echo "DB_HOST = ${DB_HOST}"
+                echo "DB_PORT = ${DB_PORT}"
             }
         }
         stage("Frontend") {
