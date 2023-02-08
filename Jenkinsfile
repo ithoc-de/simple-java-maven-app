@@ -1,4 +1,8 @@
 pipeline {
+    environment {
+        registry = "olihock/simple-java-maven-app"
+        registryCredential = 'dockerhub'
+    }
     agent {
         docker {
             image 'maven:3.8.7-eclipse-temurin-17'
@@ -22,9 +26,12 @@ pipeline {
             }
         }
         stage('Deploy') {
+            agent any
             steps {
-                echo "${GIT_COMMIT}"
-                build '-t simple-java-maven-app .'
+                echo "Commit ID: ${GIT_COMMIT}"
+                script {
+                    docker.build registry+":$BUILD_NUMBER"
+                }
             }
         }
     }
