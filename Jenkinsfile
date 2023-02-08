@@ -24,7 +24,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo "${GIT_COMMIT}"
-                sh 'docker build -t simple-java-maven-app .'
+                docker build -t simple-java-maven-app .
             }
         }
     }
