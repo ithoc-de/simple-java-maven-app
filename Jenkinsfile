@@ -22,11 +22,12 @@ pipeline {
             }
         }
         stage('Deploy') {
-            agent any
             steps {
                 echo "Commit ID: ${GIT_COMMIT}"
                 echo "BUILD_NUMBER = $BUILD_NUMBER"
-                sh 'echo "docker build here"'
+                sh 'pwd'
+                sh 'ls'
+                echo "Done"
             }
         }
     }
