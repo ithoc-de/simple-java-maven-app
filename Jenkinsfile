@@ -25,8 +25,10 @@ pipeline {
             agent any
             steps {
                 echo "Commit ID: ${GIT_COMMIT}"
+                git 'https://github.com/ithoc-de/simple-java-maven-app.git'
+                echo "BUILD_NUMBER = $BUILD_NUMBER"
                 script {
-                    echo "BUILD_NUMBER = $BUILD_NUMBER"
+                    docker.build "olihock/simple-java-maven-app:$BUILD_NUMBER"
                 }
             }
         }
