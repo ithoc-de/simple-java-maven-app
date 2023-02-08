@@ -27,6 +27,7 @@ pipeline {
                 echo "BUILD_NUMBER = $BUILD_NUMBER"
                 sh 'pwd'
                 sh 'ls'
+                sh 'docker info'
                 echo "Done"
             }
         }
