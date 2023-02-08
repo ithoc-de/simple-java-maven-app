@@ -26,7 +26,7 @@ pipeline {
             steps {
                 echo "Commit ID: ${GIT_COMMIT}"
                 echo "BUILD_NUMBER = $BUILD_NUMBER"
-                sh 'docker build -t olihock/simple-java-maven-app:latest .'
+                sh 'echo "docker build here"'
             }
         }
     }
