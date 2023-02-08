@@ -12,9 +12,15 @@ pipeline {
                     image 'maven:3.8.7-eclipse-temurin-11'
                 }
             }
+            environment {
+                DB_HOST = 'localhost'
+                DB_PORT = '2306'
+            }
             steps {
                 sh 'java -version'
                 sh 'mvn --version'
+                echo 'DB_HOST = ${DB_HOST}'
+                echo 'DB_PORT = ${DB_PORT}'
             }
         }
         stage("Frontend") {
