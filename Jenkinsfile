@@ -6,7 +6,7 @@
 pipeline {
     agent none
     stages {
-        stage('Backend') {
+        stage('Build') {
             agent {
                 docker {
                     image 'maven:3.8.7-eclipse-temurin-11'
@@ -23,7 +23,7 @@ pipeline {
                 echo "DB_PORT = ${DB_PORT}"
             }
         }
-        stage("Frontend") {
+        stage("Test") {
             agent {
                 docker {
                     image 'node:16.13.1-alpine'
@@ -34,10 +34,16 @@ pipeline {
                 sh 'npm -v'
             }
         }
+        stage("Deploy") {
+            agent any
+            steps {
+                input "Do you really want to deploy your changes to production?"
+            }
+        }
     }
     post {
         always {
-            echo 'Build done '
+            echo 'Pipeline ended '
         }
         success {
             echo 'successfully'
