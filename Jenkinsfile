@@ -27,7 +27,7 @@ pipeline {
                 echo "BUILD_NUMBER = $BUILD_NUMBER"
                 sh 'pwd'
                 sh 'ls'
-                sh 'docker info'
+                sh 'docker info' => /var/jenkins_home/workspace/ven-app-pipeline_deploy-java-app@tmp/durable-b7f63982/script.sh: 1: docker: not found
                 echo "Done"
             }
         }

@@ -20,5 +20,9 @@ public class BooksControllerTest {
         Assertions.assertEquals("Zwischen Welten", zwischenWelten.getTitle());
     }
 
+    @Test
+    public void additionalTest() {
+
+    }
 
 }
